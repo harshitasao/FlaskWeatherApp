@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/result.css') }}">
+    <title>Results Page</title>
+</head>
+<body>
+    {% if error is defined and error %}
+        <h2 class="error">Error: Please enter city name.</h2>
+    {% endif %}
+    
+    {% if data is defined and data %}
+        {% if data.main is not defined %}
+            <h2 class="error">Error: Please enter correct city name.</h2>
+        {% else %}
+        <div id = "resultContainer">
+            <div id="info">
+                <h2>City: {{ cityName  }}</h2>
+                <h2>Temperature: {{ "%.2f"|format(data.main.temp - 273.15) }}&deg; C</h2>
+                <h2>Weather: {{ data.weather[0].main }}</h2>
+            </div>
+        </div>
+        {% endif %}
+    {% endif %}    
+</body>
+</html>
