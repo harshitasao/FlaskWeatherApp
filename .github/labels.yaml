@@ -1,0 +1,10 @@
+area:
+  - 'bug'
+  - 'feature'
+kind:
+  - 'failing-test'
+  - 'cleanup'
+  - 'documentation'
+priority:
+  - 'low'
+  - 'high'
