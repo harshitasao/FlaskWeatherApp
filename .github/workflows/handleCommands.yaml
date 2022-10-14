@@ -1,0 +1,22 @@
+name: "Handle prow slash commands"
+on:
+  issue_comment:
+    types: [created]
+
+# Grant additional permissions to the GITHUB_TOKEN
+permissions:
+  # Allow labeling issues
+  issues: write
+  # Allow adding a review to a pull request
+  pull-requests: write
+
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jpmcb/prow-github-actions@v1.1.3
+        with:
+          prow-commands: |
+            /approve
+            /lgtm
+          github-token: "${{ secrets.GITHUB_TOKEN }}"

@@ -1,0 +1,22 @@
+name: Labeler
+
+on:
+  issues:
+    types:
+      - reopened
+      - opened
+  pull_request:
+    types:
+        - reopened
+        - opened
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jpmcb/prow-github-actions@v1.1.3
+        with:
+          area: "bug, feature"
+          kind: "failing-test, cleanup, documentation"
+          priority: "low, high"
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
