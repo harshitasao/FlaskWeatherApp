@@ -25,3 +25,5 @@ Contributions of any kind welcome!
 ## How to get started locally?
 
 Please see the [development guidelines](/development_guide.md)
+
+**If you like the project please give it a** :star:
